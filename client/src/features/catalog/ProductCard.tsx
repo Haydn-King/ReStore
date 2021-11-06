@@ -47,7 +47,7 @@ export default function ProductCard({ product }: Props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Add to Cart!</Button>
+        <Button size="small">Add to cart</Button>
         <Button component={Link} to={`/catalog/${product.id}`} size="small">
           View
         </Button>
