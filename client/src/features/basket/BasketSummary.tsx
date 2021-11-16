@@ -9,11 +9,18 @@ import {
 import { useAppSelector } from "../../app/store/configureStore";
 import { currencyFormat } from "../../app/util/util";
 
-export default function BasketSummary() {
+interface Props {
+  subtotal?: number;
+}
+
+export default function BasketSummary({ subtotal }: Props) {
   const { basket } = useAppSelector((state) => state.basket);
-  const subtotal =
-    basket?.items.reduce((sum, item) => sum + item.quantity * item.price, 0) ??
-    0;
+  if (subtotal === undefined)
+    subtotal =
+      basket?.items.reduce(
+        (sum, item) => sum + item.quantity * item.price,
+        0
+      ) ?? 0;
   const deliveryFee = subtotal > 50000 ? 0 : 500;
 
   return (
@@ -38,7 +45,7 @@ export default function BasketSummary() {
             <TableRow>
               <TableCell>
                 <span style={{ fontStyle: "italic" }}>
-                  *Orders over $500 qualify for free delivery
+                  *Orders over $100 qualify for free delivery
                 </span>
               </TableCell>
             </TableRow>
