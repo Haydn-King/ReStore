@@ -16,27 +16,27 @@ export default function AddressForm() {
           <AppTextInput control={control} name="fullName" label="Full name" />
         </Grid>
         <Grid item xs={12}>
-          <AppTextInput control={control} name="address1" label="Address 1" />
+          <AppTextInput
+            control={control}
+            name="address1"
+            label="Address line 1"
+          />
         </Grid>
         <Grid item xs={12}>
-          <AppTextInput control={control} name="address2" label="Address 2" />
+          <AppTextInput
+            control={control}
+            name="address2"
+            label="Address line 2"
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
           <AppTextInput control={control} name="city" label="City" />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <AppTextInput
-            control={control}
-            name="state"
-            label="State/Province/Region"
-          />
+          <AppTextInput control={control} name="state" label="State" />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <AppTextInput
-            control={control}
-            name="zip"
-            label="Zip / Postal code"
-          />
+          <AppTextInput control={control} name="zip" label="Zipcode" />
         </Grid>
         <Grid item xs={12} sm={6}>
           <AppTextInput control={control} name="country" label="Country" />

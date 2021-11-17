@@ -9,7 +9,6 @@ using API.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace API.Controllers
 {
@@ -80,7 +79,8 @@ namespace API.Controllers
                     BuyerId = User.Identity.Name,
                     ShippingAddress = orderDto.ShippingAddress,
                     Subtotal = subtotal,
-                    DeliveryFee = deliveryFee
+                    DeliveryFee = deliveryFee,
+                    PaymentIntentId = basket.PaymentIntentId
                 };
 
                 _context.Orders.Add(order);
@@ -100,7 +100,7 @@ namespace API.Controllers
                         City = orderDto.ShippingAddress.City,
                         State = orderDto.ShippingAddress.State,
                         Zip = orderDto.ShippingAddress.Zip,
-                        Country = orderDto.ShippingAddress.Country,
+                        Country = orderDto.ShippingAddress.Country
                     };
                     user.Address = address;
                 }
